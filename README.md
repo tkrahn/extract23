@@ -1,7 +1,14 @@
 # extract23
 Extract a simulated 23andMe (V3) style file from a Whole Genome BAM file
 
-Many DNA and genealogy tools use a file upload for allele call (summary) files in the 23andMe format (http://fileformats.archiveteam.org/wiki/23andMe). Those tools can't cope with huge VCF files or even raw FastQ or BAM files. With this script I show how it is possible to extract exactly the SNPs listed in a template from a BAM file and reformat the data to a 23andMe style allele table that can be uploaded to various interpretation services such as Gedmatch or Promethease. Of course you can change the template to any other arbitrary format such as Ancestry or FTDNA. I have just started with 23andMe V3 since this is the most universal usable format.
+Many DNA and genealogy tools use a file upload for allele call (summary) files in the 
+23andMe format (http://fileformats.archiveteam.org/wiki/23andMe). Those tools can't cope 
+with huge VCF files or even raw FastQ or BAM files. With this script I show how it is 
+possible to extract exactly the SNPs listed in a template from a BAM file and reformat 
+the data to a 23andMe style allele table that can be uploaded to various interpretation 
+services such as Gedmatch or Promethease. Of course you can change the template to any 
+other arbitrary format such as Ancestry or FTDNA. I have just started with 23andMe V3 
+since this is the most universal usable format.
 
 
 ## Requirements:
