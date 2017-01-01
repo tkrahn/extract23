@@ -17,7 +17,7 @@ With the given template the whole genome BAM file must be in the hg19 format. Th
 ```bash
 gunzip -c 23andMe_V3_hg19_ref.vcf.gz > 23andMe_V3_hg19_ref.vcf
 cat 23andMe_V3_hg19_ref.vcf | sed 's/^chr//' > 23andMe_V3_GRCh37_ref.vcf
-bgzip 23andMe_V3_GRCh37_ref.vcf > 23andMe_V3_GRCh37_ref.vcf.gz
+bgzip -c 23andMe_V3_GRCh37_ref.vcf > 23andMe_V3_GRCh37_ref.vcf.gz
 tabix -s1 -b2 -e2 23andMe_V3_GRCh37_ref.vcf.gz
 ```
 
