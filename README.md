@@ -21,8 +21,6 @@ bgzip 23andMe_V3_GRCh37_ref.vcf > 23andMe_V3_GRCh37_ref.vcf.gz
 tabix -s1 -b2 -e2 23andMe_V3_GRCh37_ref.vcf.gz
 </code>
 
-You can change
-
 Of course you'll need to change the reference to the correct template in the script file itself.
 
 
