@@ -28,7 +28,7 @@ Of course you'll need to change the reference to the correct template in the scr
 
 Make sure htslib, samtools, bcftools, tabix, git, gzip and zip are installed and in your executable path.
 
-```
+```bash
 git clone https://github.com/tkrahn/extract23
 cd extract23
 ./extract23.sh /path/to/bamfile_in_hg19.bam 23andMe_V3_hg19_ref.vcf.gz
