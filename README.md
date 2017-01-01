@@ -14,12 +14,12 @@ SNP calling of huge BAM files requires more than average computing power, disk s
 
 With the given template the whole genome BAM file must be in the hg19 format. This means that the reference FASTA files must have chr1, chr2, ... chr22, chrM, chrX and chrY. If the BAM file is in GRCh37 format (1, 2, 3 ... 22, M, X, Y) you may try to change the template by removing the leading 'chr' characters like this:
 
-<code><br>
-gunzip 23andMe_V3_hg19_ref.vcf.gz > 23andMe_V3_hg19_ref.vcf<br>
-cat 23andMe_V3_hg19_ref.vcf | sed 's/^chr//' > 23andMe_V3_GRCh37_ref.vcf<br>
-bgzip 23andMe_V3_GRCh37_ref.vcf > 23andMe_V3_GRCh37_ref.vcf.gz<br>
-tabix -s1 -b2 -e2 23andMe_V3_GRCh37_ref.vcf.gz<br>
-</code>
+```bash
+gunzip 23andMe_V3_hg19_ref.vcf.gz > 23andMe_V3_hg19_ref.vcf
+cat 23andMe_V3_hg19_ref.vcf | sed 's/^chr//' > 23andMe_V3_GRCh37_ref.vcf
+bgzip 23andMe_V3_GRCh37_ref.vcf > 23andMe_V3_GRCh37_ref.vcf.gz
+tabix -s1 -b2 -e2 23andMe_V3_GRCh37_ref.vcf.gz
+```
 
 Of course you'll need to change the reference to the correct template in the script file itself.
 
@@ -28,11 +28,11 @@ Of course you'll need to change the reference to the correct template in the scr
 
 Make sure htslib, samtools, bcftools, tabix, git, gzip and zip are installed and in your executable path.
 
-<code><br>
-git clone https://github.com/tkrahn/extract23<br>
-cd extract23<br>
-./extract23.sh /path/to/bamfile_in_hg19.bam 23andMe_V3_hg19_ref.vcf.gz<br>
-</code>
+```
+git clone https://github.com/tkrahn/extract23
+cd extract23
+./extract23.sh /path/to/bamfile_in_hg19.bam 23andMe_V3_hg19_ref.vcf.gz
+```
 
 The BAM file and the BAI index must be in the same directory.
 
