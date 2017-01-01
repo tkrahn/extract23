@@ -4,7 +4,7 @@ Extract a simulated 23andMe (V3) style file from a Whole Genome BAM file
 Many DNA and genealogy tools use a file upload for allele call (summary) files in the 23andMe format (http://fileformats.archiveteam.org/wiki/23andMe). Those tools can't cope with huge VCF files or even raw FastQ or BAM files. With this script I show how it is possible to extract exactly the SNPs listed in a template from a BAM file and reformat the data to a 23andMe style allele table that can be uploaded to various interpretation services such as Gedmatch or Promethease. Of course you can change the template to any other arbitrary format such as Ancestry or FTDNA. I have just started with 23andMe V3 since this is the most universal usable format.
 
 
-# Requirements:
+## Requirements:
 
 The extract23.sh script depends on bash, a modern UNIX/Linux shell and is only tested on Debian Linux. I will not work on Windows platforms without significant rewriting, but you may try to use it with Cygwin https://www.cygwin.com/.
 
@@ -24,7 +24,7 @@ tabix -s1 -b2 -e2 23andMe_V3_GRCh37_ref.vcf.gz
 Of course you'll need to change the reference to the correct template in the script file itself.
 
 
-# Installation/Usage:
+## Installation/Usage:
 
 Make sure htslib, samtools, bcftools, tabix, git, gzip and zip are installed and in your executable path.
 
