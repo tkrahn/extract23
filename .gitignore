@@ -1,0 +1,10 @@
+# Intermediate files
+23andMe_annotated.vcf.*
+23andMe_called.vcf.*
+23andMe_raw.vcf.*
+23andMe_V3_hg19.tab
+23andMe_V3_hg19_sorted.tab
+23andMe_V3_hg19.txt
+
+# The testing output file
+23andMe_V3_hg19.txt.zip
