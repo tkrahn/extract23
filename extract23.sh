@@ -1,14 +1,12 @@
 #!/bin/bash
 
+# extract23 Version 1.2 
+
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 
 # Fetch parameters from commandline
 
-REF_23ANDME="23andMe_V3_hg19_ref.tab.gz"
-OUTFILE="23andMe_V3_hg19.txt"
-verbose=0
-
-while getopts "vto:r:b:" opt; do
+while getopts ":vt:o:r:b:" opt; do
     case "$opt" in
     v)  verbose=1
         ;;
@@ -21,7 +19,7 @@ while getopts "vto:r:b:" opt; do
     o)  OUTFILE=$OPTARG
         ;;
     *)
-        echo "======================================== EXRACT23 ======================================="
+        echo "======================================== EXTRACT23 ======================================="
         echo "Usage: "
         echo "extract23.sh -b <sorted_hg19_bamfile.bam> -r <hg19_ref.fasta> [-t <23andMe_V3_hg19_ref.tab.gz>] [-o output.txt] [-v]"
         echo "  Parameters:"
@@ -46,6 +44,20 @@ fi
 if [ -z "${REF}" ]; then
     echo "FASTA reference file required (option -r)"
     exit 0
+fi
+
+if [ -z "${REF_23ANDME}" ]; then
+    echo "Using Pre-defined translation database 23andMe_V3_hg19_ref.tab.gz (option -t)"
+    REF_23ANDME="23andMe_V3_hg19_ref.tab.gz"
+fi
+
+if [ -z "${OUTFILE}" ]; then
+    echo "Using Pre-defined output file name 23andMe_V3_hg19.txt (option -o)"
+    OUTFILE="23andMe_V3_hg19.txt"
+fi
+
+if [ -z "${verbose}" ]; then
+    verbose=0
 fi
 
 # Generate 23andMe mockup file
