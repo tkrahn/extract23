@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# extract23 Version 1.2 
+# extract23 Version 1.3 
 
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 
@@ -62,7 +62,7 @@ fi
 
 # Generate 23andMe mockup file
 
-if [ ${verbose} > 0 ]; then
+if [ ${verbose} -gt 0 ]; then
     echo "Starting mpileup... Please be patient!"
 fi
 
