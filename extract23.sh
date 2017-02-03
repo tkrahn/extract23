@@ -71,7 +71,7 @@ fi
 samtools mpileup -C 50 -v -l ${REF_23ANDME} -f ${REF} ${BAMFILE_SORTED} > 23andMe_raw.vcf.gz
 tabix -p vcf 23andMe_raw.vcf.gz
 
-if [ ${verbose} > 0 ]; then
+if [ ${verbose} -gt 0 ]; then
     echo "Mpileup completed. Starting SNP calling..."
 fi
 
@@ -80,7 +80,7 @@ fi
 bcftools call -O z -V indels -m -P 0 23andMe_raw.vcf.gz > 23andMe_called.vcf.gz
 tabix -p vcf 23andMe_called.vcf.gz
 
-if [ ${verbose} > 0 ]; then
+if [ ${verbose} -gt 0 ]; then
     echo "SNP calling completed. Starting annotation..."
 fi
 
@@ -89,7 +89,7 @@ fi
 bcftools annotate -O z -a ${REF_23ANDME} -c CHROM,POS,ID 23andMe_called.vcf.gz > 23andMe_annotated.vcf.gz
 tabix -p vcf 23andMe_annotated.vcf.gz
 
-if [ ${verbose} > 0 ]; then
+if [ ${verbose} -gt 0 ]; then
     echo "Annotation completed. Starting extraction from VCF ..."
 fi
 
@@ -109,7 +109,7 @@ bcftools query -f '%ID\t%CHROM\t%POS[\t%TGT]\n' 23andMe_annotated.vcf.gz | \
     sed 's/GC$/CG/' | \
     sed 's/CA$/AC/' > 23andMe_V3_hg19.tab
 
-if [ ${verbose} > 0 ]; then
+if [ ${verbose} -gt 0 ]; then
     echo "Extraction from VCF completed. Sorting by chromosome and position ..."
 fi
 
@@ -147,7 +147,7 @@ echo '# rsid	chromosome	position	genotype' >> ${OUTFILE}
 # Append the genotype table to the header
 cat 23andMe_V3_hg19_sorted.tab >> ${OUTFILE}
 
-if [ ${verbose} > 0 ]; then
+if [ ${verbose} -gt 0 ]; then
     echo "${OUTFILE} was created. Compressing ..."
 fi
 
