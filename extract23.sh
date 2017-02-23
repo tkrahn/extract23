@@ -99,7 +99,7 @@ fi
 # We have to reformat several things with the sed editor in a pipe to make the format compatible.
 bcftools query -f '%ID\t%CHROM\t%POS[\t%TGT]\n' 23andMe_annotated.vcf.gz | \
     sed 's/chr//' | \
-    sed 's/M/MT/' | \
+    sed 's/\tM\t/\tMT\t/g' | \
     sed 's/\///' | \
     sed 's/\.\.$/--/' | \
     sed 's/TA$/AT/' | \
