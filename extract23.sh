@@ -101,7 +101,10 @@ bcftools query -f '%ID\t%CHROM\t%POS[\t%TGT]\n' 23andMe_annotated.vcf.gz | \
     sed 's/chr//' | \
     sed 's/\tM\t/\tMT\t/g' | \
     sed 's/\///' | \
+    sed -E 's/^(.*)\tY\t(.*)\t(.).*$/\1\tY\t\2\t\3/' | \
+	sed -E 's/^(.*)\tMT\t(.*)\t(.).*$/\1\tMT\t\2\t\3/' | \
     sed 's/\.\.$/--/' | \
+    sed 's/\t$/\t--/' | \
     sed 's/TA$/AT/' | \
     sed 's/TC$/CT/' | \
     sed 's/TG$/GT/' | \
